@@ -1,8 +1,8 @@
-app:
-  name: "MyApp"
-  version: "1.0.0"
-  port: 8080
-  debug: true
+server:
+  readTimeout: 10
+  writeTimeout: 10
+  port: ":8080"
+  maxHeaderBytes: 1048576 # 1MB大小的头文件
 mysql:
   host: "47.93.83.136"
   port: 3306

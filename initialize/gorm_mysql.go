@@ -3,6 +3,7 @@ package initialize
 import (
 	"fmt"
 	"gin-demo/global"
+	"gin-demo/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -22,5 +23,8 @@ func InitDB() *gorm.DB {
 		fmt.Println("连接数据库失败")
 		return nil
 	}
+	// 自动迁移
+	Db.AutoMigrate(&model.Student{}, &model.Course{})
+
 	return Db
 }
