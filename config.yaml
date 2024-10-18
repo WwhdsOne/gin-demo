@@ -1,0 +1,12 @@
+app:
+  name: "MyApp"
+  version: "1.0.0"
+  port: 8080
+  debug: true
+mysql:
+  host: "47.93.83.136"
+  port: 3306
+  user: "root"
+  password: "123456"
+  database: "gorm"
+
