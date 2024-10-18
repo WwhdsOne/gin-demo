@@ -13,6 +13,9 @@ func RunServer() {
 	// 初始化GIN
 	gin := initialize.InitGin()
 
+	// 初始化路由
+	initialize.InitRouter(gin)
+
 	// 服务器设置
 	serverConfig := global.CONFIG.Server
 	s := &http.Server{

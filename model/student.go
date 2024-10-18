@@ -1,11 +1,28 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"database/sql"
+	"gin-demo/pkg/utils"
+	"gorm.io/gorm"
+	"time"
+)
 
 type Student struct {
-	gorm.Model
-	Name    string
-	Age     int
-	Sex     int
-	Courses []Course `gorm:"many2many:student_course;"`
+	ID        int64 `gorm:"primarykey"`
+	Name      string
+	Age       int
+	Sex       int
+	Courses   []Course `gorm:"many2many:student_course;"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt sql.NullTime `gorm:"index"`
+}
+
+func (s *Student) BeforeCreate(db *gorm.DB) error {
+	id, err := utils.GenerateSnowflakeId()
+	if err != nil {
+		return err
+	}
+	s.ID = id
+	return nil
 }

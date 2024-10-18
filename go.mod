@@ -3,6 +3,7 @@ module gin-demo
 go 1.23.1
 
 require (
+	github.com/bwmarrin/snowflake v0.3.0
 	github.com/gin-gonic/gin v1.10.0
 	github.com/spf13/cobra v1.8.1
 	github.com/spf13/viper v1.19.0
