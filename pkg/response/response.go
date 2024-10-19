@@ -1,6 +1,9 @@
 package response
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
 
 type Response struct {
 	Code int         `json:"code"`
@@ -41,4 +44,12 @@ func Fail(c *gin.Context) {
 
 func FailWithMessage(message string, c *gin.Context) {
 	Result(ERROR, map[string]interface{}{}, message, c)
+}
+
+func NoAuth(message string, c *gin.Context) {
+	c.JSON(http.StatusUnauthorized, Response{
+		7,
+		message,
+		nil,
+	})
 }

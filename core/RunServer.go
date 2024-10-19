@@ -10,6 +10,8 @@ import (
 func RunServer() {
 	// 初始化数据库
 	global.DB = initialize.InitDB()
+	// 初始化Redis
+	global.Redis = initialize.InitRedis()
 	// 初始化GIN
 	gin := initialize.InitGin()
 

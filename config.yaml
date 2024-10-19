@@ -9,4 +9,11 @@ mysql:
   user: "root"
   password: "123456"
   database: "gorm"
+redis:
+  addr: "47.93.83.136"
+  port: 6379
+  password: "123456"
+  db: 0
+  protocol: 3
+
 

@@ -55,7 +55,7 @@ func UpdateStudent(s *model.Student) error {
 	}
 
 	// 更新学生信息
-	if err := tx.Model(&model.Student{}).Where("id = ?", s.ID).
+	if err := tx.Model(&model.Student{}).Where("id = ?", s.BaseModel.ID).
 		Updates(&s).Error; err != nil {
 		tx.Rollback()
 		return err
