@@ -1,9 +1,6 @@
 package middleware
 
 import (
-	"gin-demo/global"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
-	"log"
 	"strings"
 )
 
@@ -38,9 +35,9 @@ func KeyMatchFunc(args ...interface{}) (interface{}, error) {
 
 func casbinAuth() {
 	// 初始化 Casbin 的 GORM 适配器
-	adapter, err := gormadapter.NewAdapterByDB(global.DB)
-	if err != nil {
-		log.Fatalf("failed to initialize adapter: %v", err)
-	}
+	//adapter, err := gormadapter.NewAdapterByDB(global.DB)
+	//if err != nil {
+	//	log.Fatalf("failed to initialize adapter: %v", err)
+	//}
 
 }

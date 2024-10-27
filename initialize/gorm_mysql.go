@@ -24,7 +24,11 @@ func InitDB() *gorm.DB {
 		return nil
 	}
 	// 自动迁移
-	err = Db.AutoMigrate(&model.Student{}, &model.Course{})
+	err = Db.AutoMigrate(
+		&model.Student{},
+		&model.Course{},
+		&model.User{},
+	)
 	if err != nil {
 		fmt.Println(err)
 		fmt.Println("自动迁移失败")

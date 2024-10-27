@@ -15,5 +15,10 @@ redis:
   password: "123456"
   db: 0
   protocol: 3
+jwt:
+  signing-key: "Wwhds_one"
+  expires-time: "1h"
+  buffer-time: "10m"
+  issuer: "Wwhds"
 
 

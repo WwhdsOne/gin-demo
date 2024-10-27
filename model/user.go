@@ -1,28 +1,12 @@
 package model
 
-import (
-	"database/sql"
-	"gin-demo/pkg/utils"
-	"gorm.io/gorm"
-	"time"
-)
+import "github.com/gofrs/uuid/v5"
 
 type User struct {
-	ID        int64 `gorm:"primarykey"`
-	Name      string
-	Age       int
-	Sex       int
-	Courses   []Course `gorm:"many2many:student_course;"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt sql.NullTime `gorm:"index"`
-}
-
-func (s *User) BeforeCreate(db *gorm.DB) error {
-	id, err := utils.GenerateSnowflakeId()
-	if err != nil {
-		return err
-	}
-	s.ID = id
-	return nil
+	BaseModel
+	Username    uint64    // 用户账号
+	UUID        uuid.UUID // uuid
+	Password    string    // 用户密码
+	Nickname    string    // 用户昵称
+	AuthorityId uint      // 角色
 }
