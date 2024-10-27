@@ -13,6 +13,7 @@ func InitRouter(r *gin.Engine) {
 		privateRouter := router.Group("/system")
 		privateRouter.Use(middleware.JWTAuth())
 		controller.InitStudentRouter(privateRouter)
+		privateRouter.POST("/logout", controller.Logout)
 	}
 	{
 		publicRouter := router.Group("/")
